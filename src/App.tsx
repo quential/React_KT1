@@ -1,8 +1,13 @@
-import TaskBoard from "./components/TaskBoard.tsx";
+// import TaskBoard from "./components/TaskBoard.tsx";
+import { BrowserRouter } from 'react-router';
 
 function App() {
   return (
-      <TaskBoard/>
+      <BrowserRouter>
+
+      </BrowserRouter>
+
+      // <TaskBoard/>
   )
 }
 
