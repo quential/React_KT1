@@ -75,7 +75,9 @@ function Products() {
             <ul>
                 {sortedProducts.map((product) => (
                     <li key={product.id}>
-                        {product.title} — ${product.price}
+                        <Link to={`/products/${product.id}`}>
+                            {product.title} — ${product.price}
+                        </Link>
                     </li>
                 ))}
             </ul>

@@ -6,15 +6,15 @@ import TasksPage from "./components/TasksPage.tsx";
 import Products from "./components/Products.tsx";
 import LoginPage from "./components/LoginPage.tsx";
 import PrivateRoute from "./components/PrivateRoute.tsx";
+import NotFound from "./components/NotFound.tsx";
+import Users from "./components/Users.tsx";
 
 export const router = createBrowserRouter([
     {
-        path: '/',
         element: <Layout/>,
-        errorElement: <h2>404 — Страница не найдена</h2>,
         children: [
             {
-                index: true,
+                path: '/',
                 element: <HomePage/>,
             },
             {
@@ -41,6 +41,18 @@ export const router = createBrowserRouter([
                 path: 'login',
                 element: <LoginPage/>
             },
+            {
+                path: 'users',
+                element: <Users />
+            },
+            {
+                path: 'users/:id',
+                element: <Users />
+            },
         ],
+    },
+    {
+        path: '*',
+        element: <NotFound/>
     },
 ]);
