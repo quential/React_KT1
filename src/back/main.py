@@ -20,9 +20,14 @@ users_db: list[User] = [
     User(id=1, name="Alice", email="ada@dl.com"),
     User(id=2, name="Aisha", email="ada@dl.com"),
     User(id=3, name="Emil", email="ada@dl.com"),
+    User(id=4, name="Kamil", email="ada@dl.com"),
+    User(id=5, name="Pasha", email="ada@dl.com"),
+    User(id=6, name="Abdul", email="ada@dl.com"),
+    User(id=7, name="Gadzi", email="ada@dl.com"),
+
 ]
 
-next_user_id = 3
+next_user_id = 8
 
 app = FastAPI(title="User REST API")
 
