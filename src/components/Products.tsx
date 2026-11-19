@@ -42,8 +42,10 @@ function Products() {
                 <h1>{product.title}</h1>
                 <p>Цена: ${product.price}</p>
                 <p>ID товара: {product.id}</p>
+                <button style={{background: 'none', border: 'none', cursor: 'pointer'}}>🩶️</button>
+                <br/>
+                    <Link to="/products">Вернуться к списку</Link>
 
-                <Link to="/products">Вернуться к списку</Link>
             </div>
         );
     }
@@ -78,6 +80,8 @@ function Products() {
                         <Link to={`/products/${product.id}`}>
                             {product.title} — ${product.price}
                         </Link>
+                        <a>     </a>
+                        <button style={{background: 'none', border: 'none', cursor: 'pointer'}}>🩶️</button>
                     </li>
                 ))}
             </ul>
