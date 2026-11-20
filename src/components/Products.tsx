@@ -1,4 +1,5 @@
 import {Link, useParams, useSearchParams} from "react-router";
+import {useFavoritesStore} from "../store/useFavoritesStore.ts";
 
 interface Product {
     id: number;
@@ -23,6 +24,14 @@ function Products() {
     const {id} = useParams<ProductParams>();
     const [searchParams, setSearchParams] = useSearchParams();
 
+    const toggleFavorite = useFavoritesStore(
+        (state) => state.toggleFavorite
+    )
+
+    const favorites = useFavoritesStore(
+        (state) => state.favorites
+    )
+
     if (id !== undefined) {
         const product = products.find(
             (item) => item.id === Number(id)
@@ -42,9 +51,19 @@ function Products() {
                 <h1>{product.title}</h1>
                 <p>Цена: ${product.price}</p>
                 <p>ID товара: {product.id}</p>
-                <button style={{background: 'none', border: 'none', cursor: 'pointer'}}>🩶️</button>
+                <button
+                    onClick={() => toggleFavorite(product.id)}
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontSize: '24px',
+                    }}
+                >
+                    {favorites.includes(product.id) ? '❤️' : '🩶'}
+                </button>
                 <br/>
-                    <Link to="/products">Вернуться к списку</Link>
+                <Link to="/products">Вернуться к списку</Link>
 
             </div>
         );
@@ -80,8 +99,18 @@ function Products() {
                         <Link to={`/products/${product.id}`}>
                             {product.title} — ${product.price}
                         </Link>
-                        <a>     </a>
-                        <button style={{background: 'none', border: 'none', cursor: 'pointer'}}>🩶️</button>
+                        <a> </a>
+                        <button
+                            onClick={() => toggleFavorite(product.id)}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontSize: '20px',
+                            }}
+                        >
+                            {favorites.includes(product.id) ? '❤️' : '🩶'}
+                        </button>
                     </li>
                 ))}
             </ul>

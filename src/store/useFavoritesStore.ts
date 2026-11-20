@@ -1,14 +1,3 @@
-// interface FavoritesItem{
-//     id: number[]
-// }
-
-// interface FavoritesStore{
-//     favorites: FavoritesItem[]
-//     toggleFavorite(id)
-//     isFavorite(id)
-// }
-
-
 import {create} from 'zustand';
 
 interface FavoritesStore {
